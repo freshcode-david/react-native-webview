@@ -187,6 +187,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
     settings.setBuiltInZoomControls(true);
     settings.setDisplayZoomControls(false);
     settings.setDomStorageEnabled(true);
+    settings.setSupportMultipleWindows(true); // Added Multiple Window
 
     settings.setAllowFileAccess(false);
     settings.setAllowContentAccess(false);
@@ -247,6 +248,12 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
     return webView;
   }
 
+  // Added Multiple Window
+  @ReactProp(name = "supportMultipleWindows")
+  public void setSupportMultipleWindows(WebView view, boolean enabled) {
+    view.getSettings().setSupportMultipleWindows(enabled);
+  }
+  
   @ReactProp(name = "javaScriptEnabled")
   public void setJavaScriptEnabled(WebView view, boolean enabled) {
     view.getSettings().setJavaScriptEnabled(enabled);
